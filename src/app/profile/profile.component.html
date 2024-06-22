@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+          <h2 class="mb-0">Blog Dashboard</h2>
+          <p class="lead mb-0">{{ user.email }}</p>
+          <button class="btn btn-danger mt-3" (click)="logout()">Logout</button>
+        </div>
+        <div class="card-body">
+          <hr>
+          <h3 class="mb-4">Your Blog Posts</h3>
+          <div *ngFor="let blog of blogs" class="blog-post mb-4">
+            <h4>{{ blog.title }}</h4>
+            <p>{{ blog.content }}</p>
+            <div class="btn-group">
+              <a class="btn btn-primary" [routerLink]="['/blog-detail', blog._id]">Read More</a>
+              <button class="btn btn-info" (click)="editBlog(blog._id)">Edit</button>
+              <button class="btn btn-danger" (click)="deleteBlog(blog._id)">Delete</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer bg-light">
+          <button class="btn btn-success btn-block" (click)="createNewBlog()">Create New Blog</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

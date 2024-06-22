@@ -1,0 +1,34 @@
+<div class="blog-detail-container" *ngIf="blog">
+  <h2 class="blog-title">{{ blog.title }}</h2>
+  <p class="blog-content">{{ blog.content }}</p>
+
+  
+<div class="comments-section">
+  <h3 class="section-title">Comments</h3>
+  <div class="comment" *ngFor="let comment of comments">
+    <p><strong>{{ comment.author }}:</strong> {{ comment.content }}</p>
+  </div>
+</div>
+
+
+  <div class="add-comment-section">
+    <h3 class="section-title">Add a Comment</h3>
+    <form [formGroup]="commentForm" (ngSubmit)="addComment()">
+      <div class="form-group">
+        <label for="author">Author:</label>
+        <input id="author" formControlName="author" class="form-control" required>
+        <div *ngIf="commentForm.get('author')?.invalid && commentForm.get('author')?.touched" class="text-danger">
+          <div style="color: red;" *ngIf="commentForm.get('author')?.errors?.['required']">Author is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="content">Content:</label>
+        <textarea id="content" formControlName="content" class="form-control" required></textarea>
+        <div *ngIf="commentForm.get('content')?.invalid && commentForm.get('content')?.touched" class="text-danger">
+          <div  style="color: red;" *ngIf="commentForm.get('content')?.errors?.['required']">Content is required</div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="commentForm.invalid">Add Comment</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.form-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px; 
+}
+
+.form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px; 
+    height: auto; 
+    padding: 20px;
+    background-color: rgba(93, 255, 255, 0.819);
+    border-radius: 20px;
+    box-shadow: 10px 10px rgba(3, 172, 224, 0.928);
+}
+
+.form h2 {
+    padding: 10px 0;
+    font-size: 24px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(0, 49, 57);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form p {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+}
+
+.success-snackbar {
+    background-color: green;
+    color: white;
+}
+
+.error-snackbar {
+    background-color: red;
+    color: white;
+}

@@ -1,0 +1,26 @@
+<div class="comment-container">
+  <h3>Comments</h3>
+  <div *ngIf="comments.length === 0" class="text-muted">No comments yet.</div>
+  <div *ngFor="let comment of comments">
+    <p><strong>{{ comment.author }}:</strong> {{ comment.content }}</p>
+  </div>
+
+  <h3>Add a Comment</h3>
+  <form [formGroup]="commentForm" (ngSubmit)="addComment()">
+    <div>
+      <label for="author">Author:</label>
+      <input id="author" class="form-control" formControlName="author">
+      <div *ngIf="commentForm.get('author')?.invalid && commentForm.get('author')?.touched" class="text-danger">
+        <div *ngIf="commentForm.get('author')?.errors?.['required']">Author is required</div>
+      </div>
+    </div>
+    <div>
+      <label for="content">Content:</label>
+      <textarea id="content" class="form-control" formControlName="content"></textarea>
+      <div *ngIf="commentForm.get('content')?.invalid && commentForm.get('content')?.touched" class="text-danger">
+        <div *ngIf="commentForm.get('content')?.errors?.['required']">Content is required</div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="commentForm.invalid">Add Comment</button>
+  </form>
+</div>
